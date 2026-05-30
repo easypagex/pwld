@@ -1,0 +1,845 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PawVibesZ — Book a Real Cat on Zoom · €8</title>
+<meta name="description" content="Meet a real cat on Zoom for €8. Mindful presence, purring, calm. 70+ cats across 20+ countries. Book instantly.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Boogaloo&family=Nunito:wght@400;600;700;900&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --sun:    #FFD93D;
+    --coral:  #FF6B6B;
+    --mint:   #6BCFB5;
+    --sky:    #4EC9F0;
+    --violet: #C77DFF;
+    --ink:    #1A1A2E;
+    --white:  #FFFEF8;
+    --warm:   #FFF4E0;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Nunito', sans-serif;
+    background: var(--white);
+    color: var(--ink);
+    overflow-x: hidden;
+  }
+
+  /* ─── FLOATING TICKER ─── */
+  .ticker-wrap {
+    background: var(--ink);
+    color: var(--sun);
+    font-family: 'Boogaloo', cursive;
+    font-size: 1.05rem;
+    letter-spacing: .05em;
+    overflow: hidden;
+    white-space: nowrap;
+    padding: 9px 0;
+  }
+  .ticker-track {
+    display: inline-block;
+    animation: ticker 28s linear infinite;
+  }
+  .ticker-track span { margin: 0 2.5rem; }
+  @keyframes ticker { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+
+  /* ─── NAV ─── */
+  nav {
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 16px 5vw;
+    background: var(--white);
+    border-bottom: 3px solid var(--ink);
+    position: sticky; top: 0; z-index: 100;
+    box-shadow: 0 4px 0 var(--sun);
+  }
+  .nav-logo {
+    font-family: 'Boogaloo', cursive;
+    font-size: 2rem;
+    color: var(--ink);
+    text-decoration: none;
+    display: flex; align-items: center; gap: 8px;
+  }
+  .nav-logo .paw { font-size: 1.6rem; }
+  .nav-cta {
+    background: var(--coral);
+    color: var(--white);
+    font-family: 'Boogaloo', cursive;
+    font-size: 1.15rem;
+    padding: 10px 26px;
+    border-radius: 50px;
+    border: 3px solid var(--ink);
+    box-shadow: 4px 4px 0 var(--ink);
+    text-decoration: none;
+    transition: transform .15s, box-shadow .15s;
+  }
+  .nav-cta:hover { transform: translate(-2px,-2px); box-shadow: 6px 6px 0 var(--ink); }
+
+  /* ─── HERO ─── */
+  .hero {
+    background: var(--sun);
+    border-bottom: 4px solid var(--ink);
+    padding: 70px 5vw 60px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute;
+    width: 500px; height: 500px;
+    border-radius: 50%;
+    background: rgba(255,255,255,.18);
+    top: -180px; right: -100px;
+  }
+  .hero-badge {
+    display: inline-block;
+    background: var(--coral);
+    color: var(--white);
+    font-family: 'Boogaloo', cursive;
+    font-size: .95rem;
+    letter-spacing: .08em;
+    padding: 6px 18px;
+    border-radius: 50px;
+    border: 2.5px solid var(--ink);
+    margin-bottom: 18px;
+    box-shadow: 3px 3px 0 var(--ink);
+  }
+  .hero h1 {
+    font-family: 'Boogaloo', cursive;
+    font-size: clamp(2.6rem, 6vw, 4.8rem);
+    line-height: 1.05;
+    color: var(--ink);
+    margin-bottom: 22px;
+  }
+  .hero h1 em { color: var(--coral); font-style: normal; }
+  .hero-sub {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--ink);
+    max-width: 480px;
+    line-height: 1.6;
+    margin-bottom: 36px;
+    opacity: .88;
+  }
+  .hero-btns { display: flex; gap: 14px; flex-wrap: wrap; }
+  .btn-primary {
+    background: var(--coral);
+    color: var(--white);
+    font-family: 'Boogaloo', cursive;
+    font-size: 1.35rem;
+    padding: 16px 36px;
+    border-radius: 50px;
+    border: 3px solid var(--ink);
+    box-shadow: 5px 5px 0 var(--ink);
+    text-decoration: none;
+    transition: transform .15s, box-shadow .15s;
+    display: inline-flex; align-items: center; gap: 8px;
+  }
+  .btn-primary:hover { transform: translate(-3px,-3px); box-shadow: 8px 8px 0 var(--ink); }
+  .btn-secondary {
+    background: var(--ink);
+    color: var(--sun);
+    font-family: 'Boogaloo', cursive;
+    font-size: 1.15rem;
+    padding: 14px 28px;
+    border-radius: 50px;
+    border: 3px solid var(--ink);
+    box-shadow: 5px 5px 0 var(--coral);
+    text-decoration: none;
+    transition: transform .15s, box-shadow .15s;
+  }
+  .btn-secondary:hover { transform: translate(-2px,-2px); box-shadow: 7px 7px 0 var(--coral); }
+  .hero-price-tag {
+    display: inline-block;
+    background: var(--mint);
+    color: var(--ink);
+    font-family: 'Boogaloo', cursive;
+    font-size: 1rem;
+    padding: 8px 20px;
+    border-radius: 50px;
+    border: 2.5px solid var(--ink);
+    margin-top: 20px;
+    box-shadow: 3px 3px 0 var(--ink);
+  }
+
+  .hero-visual {
+    display: flex; justify-content: center; align-items: center;
+    position: relative;
+  }
+  .zoom-card {
+    background: var(--white);
+    border: 4px solid var(--ink);
+    border-radius: 24px;
+    padding: 28px;
+    box-shadow: 10px 10px 0 var(--ink);
+    max-width: 360px;
+    width: 100%;
+    animation: float 3.5s ease-in-out infinite;
+  }
+  @keyframes float { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-12px)} }
+  .zoom-bar {
+    background: var(--ink);
+    border-radius: 10px 10px 0 0;
+    padding: 10px 14px;
+    display: flex; align-items: center; gap: 8px;
+    margin: -28px -28px 20px;
+  }
+  .zoom-dot { width: 12px; height: 12px; border-radius: 50%; }
+  .zoom-bar span { color: var(--sun); font-size: .85rem; font-weight: 700; margin-left: auto; }
+  .cat-screen {
+    background: linear-gradient(135deg, var(--sky) 0%, var(--mint) 100%);
+    border-radius: 12px;
+    height: 160px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 5rem;
+    border: 3px solid var(--ink);
+    position: relative;
+    overflow: hidden;
+  }
+  .cat-screen::after {
+    content: '● LIVE';
+    position: absolute;
+    top: 10px; right: 12px;
+    background: var(--coral);
+    color: var(--white);
+    font-size: .7rem;
+    font-weight: 900;
+    padding: 3px 8px;
+    border-radius: 50px;
+    border: 2px solid var(--ink);
+    animation: pulse 1.4s ease-in-out infinite;
+  }
+  @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:.5} }
+  .zoom-name {
+    margin-top: 14px;
+    font-family: 'Boogaloo', cursive;
+    font-size: 1.1rem;
+    color: var(--ink);
+    text-align: center;
+  }
+  .zoom-name span { color: var(--coral); }
+
+  /* ─── TRUST STRIP ─── */
+  .trust-strip {
+    background: var(--coral);
+    border-top: 3px solid var(--ink);
+    border-bottom: 3px solid var(--ink);
+    padding: 20px 5vw;
+    display: flex; justify-content: center; flex-wrap: wrap; gap: 32px;
+  }
+  .trust-item {
+    display: flex; flex-direction: column; align-items: center;
+    color: var(--white);
+  }
+  .trust-item strong {
+    font-family: 'Boogaloo', cursive;
+    font-size: 2rem;
+    line-height: 1;
+  }
+  .trust-item span { font-size: .9rem; font-weight: 700; opacity: .9; }
+
+  /* ─── ONE MESSAGE SECTION ─── */
+  .one-msg {
+    background: var(--mint);
+    border-bottom: 4px solid var(--ink);
+    padding: 70px 5vw;
+    text-align: center;
+  }
+  .one-msg h2 {
+    font-family: 'Boogaloo', cursive;
+    font-size: clamp(2.2rem, 5vw, 4rem);
+    color: var(--ink);
+    line-height: 1.1;
+    max-width: 860px;
+    margin: 0 auto 20px;
+  }
+  .one-msg h2 mark {
+    background: var(--sun);
+    color: var(--ink);
+    padding: 0 8px;
+    border-radius: 6px;
+    font-style: normal;
+  }
+  .one-msg p {
+    font-size: 1.2rem;
+    color: var(--ink);
+    max-width: 620px;
+    margin: 0 auto 38px;
+    font-weight: 600;
+    opacity: .85;
+  }
+
+  /* ─── HOW IT WORKS ─── */
+  .how {
+    padding: 80px 5vw;
+    background: var(--white);
+    border-bottom: 4px solid var(--ink);
+  }
+  .section-label {
+    font-family: 'Boogaloo', cursive;
+    font-size: .95rem;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    color: var(--coral);
+    margin-bottom: 10px;
+  }
+  .section-title {
+    font-family: 'Boogaloo', cursive;
+    font-size: clamp(2rem, 4vw, 3rem);
+    color: var(--ink);
+    margin-bottom: 48px;
+  }
+  .steps {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 24px;
+  }
+  .step-card {
+    background: var(--warm);
+    border: 3px solid var(--ink);
+    border-radius: 20px;
+    padding: 30px 24px;
+    box-shadow: 6px 6px 0 var(--ink);
+    transition: transform .2s, box-shadow .2s;
+  }
+  .step-card:hover { transform: translate(-3px,-3px); box-shadow: 9px 9px 0 var(--ink); }
+  .step-num {
+    font-family: 'Boogaloo', cursive;
+    font-size: 3.5rem;
+    line-height: 1;
+    color: var(--coral);
+    margin-bottom: 8px;
+  }
+  .step-icon { font-size: 2.2rem; margin-bottom: 10px; display: block; }
+  .step-card h3 { font-family: 'Boogaloo', cursive; font-size: 1.4rem; margin-bottom: 8px; }
+  .step-card p { font-size: .95rem; line-height: 1.6; color: #444; }
+
+  /* ─── PRICING ─── */
+  .pricing {
+    background: var(--sky);
+    border-bottom: 4px solid var(--ink);
+    padding: 80px 5vw;
+  }
+  .pricing-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 28px;
+    max-width: 960px;
+    margin: 0 auto;
+  }
+  .price-card {
+    background: var(--white);
+    border: 3px solid var(--ink);
+    border-radius: 24px;
+    padding: 36px 28px;
+    box-shadow: 8px 8px 0 var(--ink);
+    display: flex; flex-direction: column;
+    transition: transform .2s, box-shadow .2s;
+  }
+  .price-card:hover { transform: translate(-4px,-4px); box-shadow: 12px 12px 0 var(--ink); }
+  .price-card.featured {
+    background: var(--sun);
+    border-width: 4px;
+  }
+  .price-tag-badge {
+    display: inline-block;
+    background: var(--coral);
+    color: var(--white);
+    font-family: 'Boogaloo', cursive;
+    font-size: .85rem;
+    padding: 4px 14px;
+    border-radius: 50px;
+    border: 2px solid var(--ink);
+    margin-bottom: 14px;
+    align-self: flex-start;
+  }
+  .price-amount {
+    font-family: 'Boogaloo', cursive;
+    font-size: 3.5rem;
+    line-height: 1;
+    color: var(--ink);
+    margin-bottom: 6px;
+  }
+  .price-label { font-size: .95rem; font-weight: 700; color: #555; margin-bottom: 18px; }
+  .price-features { list-style: none; margin-bottom: 28px; flex: 1; }
+  .price-features li {
+    padding: 7px 0;
+    font-size: .95rem;
+    border-bottom: 1.5px solid rgba(26,26,46,.1);
+    display: flex; align-items: center; gap: 8px;
+  }
+  .price-features li::before { content: '✓'; color: var(--mint); font-weight: 900; font-size: 1rem; }
+  .price-btn {
+    background: var(--coral);
+    color: var(--white);
+    font-family: 'Boogaloo', cursive;
+    font-size: 1.2rem;
+    padding: 14px;
+    border-radius: 50px;
+    border: 3px solid var(--ink);
+    box-shadow: 4px 4px 0 var(--ink);
+    text-decoration: none;
+    text-align: center;
+    display: block;
+    transition: transform .15s, box-shadow .15s;
+  }
+  .price-btn:hover { transform: translate(-2px,-2px); box-shadow: 6px 6px 0 var(--ink); }
+  .price-btn.alt { background: var(--ink); color: var(--sun); }
+
+  /* ─── SOCIAL PROOF ─── */
+  .social-proof {
+    padding: 80px 5vw;
+    background: var(--warm);
+    border-bottom: 4px solid var(--ink);
+  }
+  .reviews {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 24px;
+    margin-top: 48px;
+  }
+  .review-card {
+    background: var(--white);
+    border: 3px solid var(--ink);
+    border-radius: 20px;
+    padding: 28px 24px;
+    box-shadow: 6px 6px 0 var(--ink);
+  }
+  .stars { font-size: 1.1rem; margin-bottom: 12px; }
+  .review-text { font-size: 1rem; line-height: 1.7; color: #333; margin-bottom: 16px; font-style: italic; }
+  .reviewer {
+    font-weight: 700;
+    font-size: .9rem;
+    color: var(--coral);
+    display: flex; align-items: center; gap: 8px;
+  }
+  .reviewer-flag { font-size: 1.2rem; }
+
+  /* ─── GLOBAL MAP STRIP ─── */
+  .globe-strip {
+    background: var(--violet);
+    border-bottom: 4px solid var(--ink);
+    padding: 60px 5vw;
+    text-align: center;
+    color: var(--white);
+  }
+  .globe-strip h2 {
+    font-family: 'Boogaloo', cursive;
+    font-size: clamp(2rem, 4vw, 3.2rem);
+    margin-bottom: 16px;
+  }
+  .globe-strip p { font-size: 1.1rem; font-weight: 600; opacity: .9; margin-bottom: 36px; }
+  .flags {
+    display: flex; justify-content: center; flex-wrap: wrap; gap: 12px;
+    font-size: 2rem;
+    max-width: 700px;
+    margin: 0 auto;
+  }
+
+  /* ─── CTA FINAL ─── */
+  .final-cta {
+    background: var(--coral);
+    border-bottom: 4px solid var(--ink);
+    padding: 90px 5vw;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .final-cta::before, .final-cta::after {
+    content: '🐾';
+    position: absolute;
+    font-size: 8rem;
+    opacity: .08;
+  }
+  .final-cta::before { top: -20px; left: -20px; transform: rotate(-20deg); }
+  .final-cta::after  { bottom: -20px; right: -20px; transform: rotate(20deg); }
+  .final-cta h2 {
+    font-family: 'Boogaloo', cursive;
+    font-size: clamp(2.4rem, 5vw, 4.2rem);
+    color: var(--white);
+    margin-bottom: 16px;
+  }
+  .final-cta p {
+    font-size: 1.2rem;
+    color: rgba(255,255,255,.9);
+    margin-bottom: 38px;
+    font-weight: 600;
+  }
+  .final-btn {
+    display: inline-flex; align-items: center; gap: 10px;
+    background: var(--sun);
+    color: var(--ink);
+    font-family: 'Boogaloo', cursive;
+    font-size: 1.6rem;
+    padding: 18px 48px;
+    border-radius: 50px;
+    border: 4px solid var(--ink);
+    box-shadow: 7px 7px 0 var(--ink);
+    text-decoration: none;
+    transition: transform .15s, box-shadow .15s;
+  }
+  .final-btn:hover { transform: translate(-4px,-4px); box-shadow: 11px 11px 0 var(--ink); }
+
+  /* ─── CONNECT ─── */
+  .connect {
+    background: var(--ink);
+    padding: 70px 5vw 50px;
+    color: var(--white);
+    text-align: center;
+  }
+  .connect h3 {
+    font-family: 'Boogaloo', cursive;
+    font-size: 2rem;
+    color: var(--sun);
+    margin-bottom: 10px;
+  }
+  .connect p { font-size: 1rem; opacity: .7; margin-bottom: 36px; }
+  .social-links {
+    display: flex; justify-content: center; flex-wrap: wrap; gap: 16px;
+    margin-bottom: 40px;
+  }
+  .social-link {
+    display: flex; align-items: center; gap: 9px;
+    background: rgba(255,255,255,.08);
+    border: 2px solid rgba(255,255,255,.2);
+    border-radius: 50px;
+    padding: 12px 22px;
+    color: var(--white);
+    text-decoration: none;
+    font-weight: 700;
+    font-size: .95rem;
+    transition: background .2s, border-color .2s, transform .15s;
+  }
+  .social-link:hover {
+    background: rgba(255,255,255,.18);
+    border-color: var(--sun);
+    color: var(--sun);
+    transform: translateY(-3px);
+  }
+  .social-link .icon { font-size: 1.3rem; }
+  .pay-row {
+    display: flex; justify-content: center; flex-wrap: wrap; gap: 16px;
+    margin-bottom: 48px;
+  }
+  .pay-link {
+    display: flex; align-items: center; gap: 8px;
+    background: var(--sun);
+    color: var(--ink);
+    font-family: 'Boogaloo', cursive;
+    font-size: 1.05rem;
+    padding: 12px 28px;
+    border-radius: 50px;
+    border: 3px solid transparent;
+    text-decoration: none;
+    font-weight: 700;
+    transition: transform .15s, box-shadow .15s;
+    box-shadow: 4px 4px 0 rgba(255,255,255,.3);
+  }
+  .pay-link:hover { transform: translateY(-3px); box-shadow: 6px 6px 0 rgba(255,255,255,.3); }
+  .pay-link.paypal { background: #0070E0; color: #fff; }
+
+  footer {
+    border-top: 3px solid rgba(255,255,255,.1);
+    padding: 24px 5vw;
+    display: flex; justify-content: space-between; flex-wrap: wrap; gap: 12px; align-items: center;
+    font-size: .85rem;
+    opacity: .55;
+    color: var(--white);
+  }
+  footer a { color: var(--sun); text-decoration: none; }
+
+  /* ─── RESPONSIVE ─── */
+  @media (max-width: 768px) {
+    .hero { grid-template-columns: 1fr; }
+    .hero-visual { display: none; }
+    .nav-cta { padding: 8px 18px; font-size: 1rem; }
+    footer { justify-content: center; text-align: center; }
+  }
+
+  /* ─── SCROLL ANIMATION ─── */
+  .reveal { opacity: 0; transform: translateY(32px); transition: opacity .6s ease, transform .6s ease; }
+  .reveal.visible { opacity: 1; transform: translateY(0); }
+</style>
+</head>
+<body>
+
+<!-- TICKER -->
+<div class="ticker-wrap" aria-hidden="true">
+  <div class="ticker-track">
+    <span>😻 Real cats on Zoom</span>
+    <span>🌍 20+ countries</span>
+    <span>🐱 70+ cats worldwide</span>
+    <span>✨ Only €8 per session</span>
+    <span>🧘 Mindful presence</span>
+    <span>😌 Instant calm, zero stress</span>
+    <span>💙 Groups welcome — €80</span>
+    <span>🔴 Book now, meet today</span>
+    <span>😻 Real cats on Zoom</span>
+    <span>🌍 20+ countries</span>
+    <span>🐱 70+ cats worldwide</span>
+    <span>✨ Only €8 per session</span>
+    <span>🧘 Mindful presence</span>
+    <span>😌 Instant calm, zero stress</span>
+    <span>💙 Groups welcome — €80</span>
+    <span>🔴 Book now, meet today</span>
+  </div>
+</div>
+
+<!-- NAV -->
+<nav>
+  <a href="https://paniaguai.github.io/pawz/" class="nav-logo" target="_blank" rel="noopener">
+    <span class="paw">🐾</span> PawVibesZ
+  </a>
+  <a href="https://buy.stripe.com/cNi6oGfqL4SHdrg7w40Jq04" class="nav-cta" target="_blank" rel="noopener">
+    Book a Cat — €8 🐱
+  </a>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-text">
+    <div class="hero-badge">🌍 The World's First Cats on Zoom Platform</div>
+    <h1>One Click.<br>A Real Cat.<br><em>Instant Calm.</em></h1>
+    <p class="hero-sub">
+      Skip the stress. Meet a real, purring cat on Zoom — anywhere in the world — and breathe again. Solo or group. No fluff, just fur.
+    </p>
+    <div class="hero-btns">
+      <a href="https://buy.stripe.com/cNi6oGfqL4SHdrg7w40Jq04" class="btn-primary" target="_blank" rel="noopener">
+        🐾 Book My Cat — €8
+      </a>
+      <a href="https://forms.gle/bnT7VsrdPXLXrz3G9" class="btn-secondary" target="_blank" rel="noopener">
+        📅 Schedule Now
+      </a>
+    </div>
+    <div class="hero-price-tag">👥 Group sessions — just €80 · Secure Stripe &amp; PayPal</div>
+  </div>
+
+  <div class="hero-visual">
+    <div class="zoom-card">
+      <div class="zoom-bar">
+        <div class="zoom-dot" style="background:#FF6B6B"></div>
+        <div class="zoom-dot" style="background:#FFD93D"></div>
+        <div class="zoom-dot" style="background:#6BCFB5"></div>
+        <span>PawVibesZ • Zoom</span>
+      </div>
+      <div class="cat-screen">😸</div>
+      <div class="zoom-name">Muffin from <span>Tokyo 🇯🇵</span> is purring for you</div>
+    </div>
+  </div>
+</section>
+
+<!-- TRUST STRIP -->
+<div class="trust-strip">
+  <div class="trust-item"><strong>70+</strong><span>Real Cats</span></div>
+  <div class="trust-item"><strong>20+</strong><span>Countries</span></div>
+  <div class="trust-item"><strong>50+</strong><span>Host Specialists</span></div>
+  <div class="trust-item"><strong>€8</strong><span>Per Session</span></div>
+  <div class="trust-item"><strong>100%</strong><span>Real & Unscripted</span></div>
+</div>
+
+<!-- ONE MESSAGE -->
+<section class="one-msg">
+  <h2 class="reveal">Stop scrolling. <mark>Start purring.</mark><br>Your calm is one click away.</h2>
+  <p class="reveal">Whether you're burned out, anxious, or just missing a cat — PawVibesZ delivers a real, live, purring cat directly to your screen. No subscriptions. No waiting lists. Just book and breathe.</p>
+  <a href="https://buy.stripe.com/cNi6oGfqL4SHdrg7w40Jq04" class="btn-primary reveal" target="_blank" rel="noopener">
+    🐱 Yes, I Want My Cat — €8
+  </a>
+</section>
+
+<!-- HOW IT WORKS -->
+<section class="how">
+  <p class="section-label">It's ridiculously simple</p>
+  <h2 class="section-title">How It Works 🐾</h2>
+  <div class="steps">
+    <div class="step-card reveal">
+      <div class="step-num">01</div>
+      <span class="step-icon">🐱</span>
+      <h3>Pick a Cat</h3>
+      <p>Browse 70+ real cats across 20+ countries on our Instagram. Find your vibe — fluffy, sleepy, playful — your call.</p>
+    </div>
+    <div class="step-card reveal">
+      <div class="step-num">02</div>
+      <span class="step-icon">💳</span>
+      <h3>Book &amp; Pay</h3>
+      <p>One-click checkout via Stripe or PayPal. €8 solo · €80 group. Fully secure. Takes 30 seconds flat.</p>
+    </div>
+    <div class="step-card reveal">
+      <div class="step-num">03</div>
+      <span class="step-icon">📅</span>
+      <h3>Schedule</h3>
+      <p>Fill in our quick form with your chosen cat and a date/time that works for you. We handle the rest.</p>
+    </div>
+    <div class="step-card reveal">
+      <div class="step-num">04</div>
+      <span class="step-icon">😌</span>
+      <h3>Breathe &amp; Reset</h3>
+      <p>Join on Zoom and let the purring do its magic. Calm, grounded, and genuinely reconnected.</p>
+    </div>
+  </div>
+</section>
+
+<!-- PRICING -->
+<section class="pricing">
+  <p class="section-label" style="color:var(--ink)">Transparent, no-nonsense pricing</p>
+  <h2 class="section-title" style="color:var(--ink)">Choose Your Session 😸</h2>
+  <div class="pricing-grid">
+
+    <div class="price-card reveal">
+      <span class="price-tag-badge">Most Popular</span>
+      <div class="price-amount">€8</div>
+      <div class="price-label">Solo Session · 1 person</div>
+      <ul class="price-features">
+        <li>1-on-1 with a real cat on Zoom</li>
+        <li>Choose your cat &amp; country</li>
+        <li>Mindful presence session</li>
+        <li>Secure Stripe checkout</li>
+        <li>Instant booking confirmation</li>
+      </ul>
+      <a href="https://buy.stripe.com/cNi6oGfqL4SHdrg7w40Jq04" class="price-btn" target="_blank" rel="noopener">
+        🐾 Book Solo — €8
+      </a>
+    </div>
+
+    <div class="price-card featured reveal">
+      <span class="price-tag-badge">For Teams &amp; Groups</span>
+      <div class="price-amount">€80</div>
+      <div class="price-label">Group Session · whole team</div>
+      <ul class="price-features">
+        <li>Full group Zoom experience</li>
+        <li>Perfect for team wellness days</li>
+        <li>Custom cat lineup for your group</li>
+        <li>Stripe or PayPal payment</li>
+        <li>Memorable &amp; unscripted</li>
+      </ul>
+      <a href="https://buy.stripe.com/aFadR892nad186W7w40Jq05" class="price-btn" target="_blank" rel="noopener">
+        👥 Book Group — €80
+      </a>
+    </div>
+
+    <div class="price-card reveal">
+      <span class="price-tag-badge">Flexible Payment</span>
+      <div class="price-amount">💙</div>
+      <div class="price-label">Pay via PayPal</div>
+      <ul class="price-features">
+        <li>Secure PayPal checkout</li>
+        <li>Solo or group — you decide</li>
+        <li>Available worldwide</li>
+        <li>Same great cat experience</li>
+        <li>Then schedule via the form</li>
+      </ul>
+      <a href="https://www.paypal.com/paypalme/okgomeet" class="price-btn alt" target="_blank" rel="noopener">
+        💙 Pay via PayPal
+      </a>
+    </div>
+
+  </div>
+
+  <div style="text-align:center;margin-top:36px">
+    <a href="https://forms.gle/bnT7VsrdPXLXrz3G9" class="btn-primary" target="_blank" rel="noopener" style="display:inline-flex">
+      📅 Schedule Your Session →
+    </a>
+  </div>
+</section>
+
+<!-- SOCIAL PROOF -->
+<section class="social-proof">
+  <p class="section-label">What people are saying</p>
+  <h2 class="section-title">Real People. Real Calm. 😻</h2>
+  <div class="reviews">
+    <div class="review-card reveal">
+      <div class="stars">⭐⭐⭐⭐⭐</div>
+      <p class="review-text">"I booked this on a whim during a stressful workday. Ten minutes later I was smiling and completely reset. Honestly the best €8 I've ever spent."</p>
+      <div class="reviewer"><span class="reviewer-flag">🇩🇪</span> Sarah M. — Hamburg</div>
+    </div>
+    <div class="review-card reveal">
+      <div class="stars">⭐⭐⭐⭐⭐</div>
+      <p class="review-text">"We did a group session for our team retreat. Absolute chaos in the best way — everyone was laughing and purring along. 100% booking again."</p>
+      <div class="reviewer"><span class="reviewer-flag">🇬🇧</span> James T. — London</div>
+    </div>
+    <div class="review-card reveal">
+      <div class="stars">⭐⭐⭐⭐⭐</div>
+      <p class="review-text">"I'm allergic to cats but desperately miss them. PawVibesZ is literally my happy place now. The cat from Tokyo was an absolute dream."</p>
+      <div class="reviewer"><span class="reviewer-flag">🇺🇸</span> Priya K. — New York</div>
+    </div>
+  </div>
+</section>
+
+<!-- GLOBE STRIP -->
+<section class="globe-strip">
+  <h2 class="reveal">🌍 Cats Everywhere You Are</h2>
+  <p class="reveal">From Tokyo to Texas, Madrid to Manila — wherever you are, a purring friend is waiting.</p>
+  <div class="flags">
+    🇿🇦 🇵🇹 🇨🇦 🇺🇸 🇵🇭 🇮🇩 🇯🇵 🇰🇷 🇸🇬 🇬🇧 🇮🇪 🇩🇪 🇮🇹 🇨🇭 🇳🇱 🇬🇷 🇨🇾 🇵🇱 🇱🇹 🇦🇿 🇸🇻 🇨🇷 🇪🇸
+  </div>
+</section>
+
+<!-- FINAL CTA -->
+<section class="final-cta">
+  <h2 class="reveal">Ready to Meet Your Cat? 🐾</h2>
+  <p class="reveal">Calm and kindness, delivered by whiskers. Book in 30 seconds.</p>
+  <a href="https://buy.stripe.com/cNi6oGfqL4SHdrg7w40Jq04" class="final-btn reveal" target="_blank" rel="noopener">
+    😸 Book Now — Only €8
+  </a>
+</section>
+
+<!-- CONNECT & FOOTER -->
+<section class="connect">
+  <h3>Find Us &amp; Follow Along 🐱</h3>
+  <p>Over 70 cats are posting, purring, and waiting to meet you.</p>
+
+  <div class="social-links">
+    <a href="https://www.instagram.com/pawvibesz/" class="social-link" target="_blank" rel="noopener">
+      <span class="icon">📸</span> @pawvibesz on Instagram
+    </a>
+    <a href="https://paniaguai.github.io/pawz/" class="social-link" target="_blank" rel="noopener">
+      <span class="icon">🌐</span> Official Website
+    </a>
+    <a href="mailto:pawvibesz@gmail.com" class="social-link">
+      <span class="icon">✉️</span> Email Us
+    </a>
+  </div>
+
+  <div class="pay-row">
+    <a href="https://buy.stripe.com/cNi6oGfqL4SHdrg7w40Jq04" class="pay-link" target="_blank" rel="noopener">
+      🔒 Stripe — Solo €8
+    </a>
+    <a href="https://buy.stripe.com/aFadR892nad186W7w40Jq05" class="pay-link" target="_blank" rel="noopener">
+      👥 Stripe — Group €80
+    </a>
+    <a href="https://www.paypal.com/paypalme/okgomeet" class="pay-link paypal" target="_blank" rel="noopener">
+      💙 PayPal
+    </a>
+    <a href="https://forms.gle/bnT7VsrdPXLXrz3G9" class="pay-link" style="background:var(--mint);color:var(--ink)" target="_blank" rel="noopener">
+      📅 Schedule Form
+    </a>
+  </div>
+
+  <footer>
+    <span>© 2025 PawVibesZ · The World's First Cats on Zoom Platform</span>
+    <span><a href="https://paniaguai.github.io/pawz/" target="_blank" rel="noopener">paniaguai.github.io/pawz</a> · <a href="https://www.instagram.com/pawvibesz/">@pawvibesz</a></span>
+  </footer>
+</section>
+
+<script>
+  // Scroll reveal
+  const reveals = document.querySelectorAll('.reveal');
+  const obs = new IntersectionObserver((entries) => {
+    entries.forEach((e, i) => {
+      if (e.isIntersecting) {
+        setTimeout(() => e.target.classList.add('visible'), i * 80);
+        obs.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.12 });
+  reveals.forEach(r => obs.observe(r));
+</script>
+</body>
+</html>
